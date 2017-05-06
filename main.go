@@ -77,6 +77,9 @@ func changeAdmin(w http.ResponseWriter, r *http.Request) {
 	class = strings.Join(r.Form["course"], "")
 	cc = strings.Join(r.Form["cc"], "")
 
+	fmt.Println("\n\nUpdated course code: " + class)
+	fmt.Println("Updated CC: " + cc + "\n\n")
+
 	w.Write([]byte("Success!"))
 }
 
