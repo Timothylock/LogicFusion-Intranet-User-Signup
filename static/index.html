@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LogicFusion Offline Signup</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="assets/bootstrap/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="assets/bootstrap/bootstrap.min.js"></script>
+</head>
+<body>
+
+<form style="padding:50px" class="form-horizontal" action="submit" method="GET">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>LogicFusion Offline Signup + Photo Consent</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="firstname">Student First Name</label>
+            <div class="col-md-4">
+                <input id="firstname" name="firstname" type="text" placeholder="John" class="form-control input-md" required="">
+                <span class="help-block">Enter the first name of the student</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="lastname">Student Last Name</label>
+            <div class="col-md-4">
+                <input id="lastname" name="lastname" type="text" placeholder="Smith" class="form-control input-md" required="">
+                <span class="help-block">Enter the last name of the student</span>
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="gender">Gender</label>
+            <div class="col-md-4">
+                <select id="gender" name="gender" class="form-control">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="email">Student Email</label>
+            <div class="col-md-4">
+                <input id="email" name="email" type="email" placeholder="johnsmith@gapps.yrdsb.com" class="form-control input-md">
+                <span class="help-block">Enter the email of the student. Use parent email if they do not have one</span>
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="password">Student Password</label>
+            <div class="col-md-4">
+                <input id="password" name="password" type="password" placeholder="password" class="form-control input-md">
+                <span class="help-block">This password is used for your LogicFusion account</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="parentfirstname">Parent First Name</label>
+            <div class="col-md-4">
+                <input id="parentfirstname" name="parentfirstname" type="text" placeholder="Jane" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="parentlastname">Parent Last Name</label>
+            <div class="col-md-4">
+                <input id="parentlastname" name="parentlastname" type="text" placeholder="Smith" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="parentemail">Parent Email</label>
+            <div class="col-md-4">
+                <input id="parentemail" name="parentemail" type="email" placeholder="janesmith@yahoo.ca" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <p><font size="1">By selecting yes, I hereby permit and authorize LogicFusion Limited to take photos and/or videos of the
+
+            student listed above. I acknowledge and agree that LogicFusion Limited may publish or use the photos and/or
+
+            videos in any manner, including but not limited to electronic or digital means, for advertising, printed materials,
+
+            website postings, and promotional materials. Furthermore, I acknowledge that LogicFusion Limited may not be
+
+            able to control the distribution or use of the photos and/or videos by representatives other than our own, and
+
+            will hold harmless LogicFusion Limited from any liabilities.</font></p>
+
+        <!-- Multiple Radios -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="photoconsent">Photo Consent</label>
+            <div class="col-md-4">
+                <div class="radio">
+                    <label for="photoconsent-0">
+                        <input type="radio" name="photoconsent" id="photoconsent-0" value="Y" checked="checked">
+                        <font size="4" color="green">Yes</font>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="photoconsent-1">
+                        <input type="radio" name="photoconsent" id="photoconsent-1" value="N" onclick="alert('Are you sure? Many parents enjoy the photos that we send to them of their child and their amazing projects!');">
+                        <font size="2" color="red"> No, my child may not be in the class photo or any photos/video</font>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="parentsignature">Digital Signature</label>
+            <div class="col-md-4">
+                <input id="parentsignature" name="parentsignature" type="text" placeholder="Jane Smith" class="form-control input-md" required="">
+                <span class="help-block">Please type your name here to use as a your legally-binding digital signature.</span>
+            </div>
+        </div>
+
+        <input type="submit" value="Submit">
+
+    </fieldset>
+</form>
+
+
+</body>
+</html>
