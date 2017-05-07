@@ -11,6 +11,7 @@ import (
 
 var class string = "default"
 var cc string = "MM"
+var course_code string = "XX"
 
 /*
 Takes in the request and appends to a csv
@@ -30,7 +31,7 @@ func submitForm(w http.ResponseWriter, r *http.Request) {
 	photoconsent := strings.Join(r.Form["photoconsent"], "")
 	parentsignature := strings.Join(r.Form["parentsignature"], "")
 
-	text := class + "," + cc + "," + email + "," + password + "," + firstname + "," + lastname + "," + "," +
+	text := class + cc + course_code + "," + cc + "," + email + "," + password + "," + firstname + "," + lastname + "," + "," +
 		"," + "," + "," + gender + "," + "," + "Markham/Toronto" + "," + "," + parentfirstname + "," +
 		parentlastname + ", 5555555555 ," + parentemail + "," + photoconsent + "," + parentsignature + "\n"
 
@@ -74,11 +75,14 @@ func changeAdmin(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	// Parse arguments
 	r.ParseForm()
+	course_code = strings.Join(r.Form["course-code"], "")
 	class = strings.Join(r.Form["course"], "")
 	cc = strings.Join(r.Form["cc"], "")
 
-	fmt.Println("\n\nUpdated course code: " + class)
-	fmt.Println("Updated CC: " + cc + "\n\n")
+	fmt.Println("\n\nUpdated course code: " + course_code)
+	fmt.Println("Updated class: " + class)
+	fmt.Println("Updated CC: " + cc + "\n")
+	fmt.Println("Final course code being used: " + class + cc + course_code + "\n\n")
 
 	w.Write([]byte("Success!"))
 }

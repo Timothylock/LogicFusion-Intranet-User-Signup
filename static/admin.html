@@ -22,10 +22,11 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="course">Course Code</label>
+            <label class="col-md-4 control-label" for="course-code">Course Code</label>
             <div class="col-md-4">
-                <input id="course" name="course" type="text" placeholder="John" class="form-control input-md" required="">
+                <input id="course-code" name="course-code" type="text" placeholder="123456" class="form-control input-md" required="">
                 <span class="help-block">Course Code</span>
+                <span class="help-block">As it appears on the top of the attendance (should be 6 characters)</span>
             </div>
         </div>
 
@@ -33,8 +34,55 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="cc">Community Center</label>
             <div class="col-md-4">
-                <input id="cc" name="cc" type="text" placeholder="Smith" class="form-control input-md" required="">
+                <input id="cc" name="cc" type="text" placeholder="MM" class="form-control input-md" required="">
                 <span class="help-block">Community Center</span>
+                <span class="help-block">MM, AP, DC, etc.  All caps.</span>
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="course">Course</label>
+            <div class="col-md-4">
+                <select id="course" name="course" class="form-control">
+                    <option value="D1">Android AppWizard Beginner</option>
+                    <option value="A1">Animation</option>
+                    <option value="C1">C++ Level 1</option>
+                    <option value="C3">C++ Level 2</option>
+                    <option value="Y1">ForensicFusion</option>
+                    <option value="F1">GameFusion Beginner</option>
+                    <option value="F3">GameFusion Platforming 1</option>
+                    <option value="F4">GameFusion Platforming 2</option>
+                    <option value="F5">GameFusion Scrolling Shooter</option>
+                    <option value="H1">Hands-on Hardware</option>
+                    <option value="RA">Hands-on Robotics EV3</option>
+                    <option value="EA">Hands-on Robotics EV3 - Animals</option>
+                    <option value="EC">Hands-on Robotics EV3 - Cars &amp; Vehicles</option>
+                    <option value="ET">Hands-on Robotics EV3 - Toys &amp; Tools</option>
+                    <option value="RB">Hands-on Robotics EV3 2</option>
+                    <option value="RJ">Hands-on Robotics Jr</option>
+                    <option value="JA">Hands-on Robotics Jr - Animals</option>
+                    <option value="JT">Hands-on Robotics Jr - Transportation</option>
+                    <option value="J2">Hands-on Robotics Jr 2</option>
+                    <option value="RL">Hands-on Robotics NXT</option>
+                    <option value="NA">Hands-on Robotics NXT - Animals</option>
+                    <option value="NC">Hands-on Robotics NXT - Cars &amp; Vehicles</option>
+                    <option value="NT">Hands-on Robotics NXT - Toys &amp; Tools</option>
+                    <option value="RH">Hands-on Robotics NXT 2</option>
+                    <option value="P1">Java Level 1</option>
+                    <option value="P2">Java Level 2</option>
+                    <option value="T1">Python Level 1</option>
+                    <option value="Z1">Redstone Circuitry in Minecraft</option>
+                    <option value="RL">Robo-gals</option>
+                    <option value="R1">Robotics 1</option>
+                    <option value="R2">Robotics 2</option>
+                    <option value="R3">Robotics 3</option>
+                    <option value="S1">Scratch Level 1</option>
+                    <option value="S2">Scratch Level 2</option>
+                    <option value="S3">Scratch Level 3</option>
+                    <option value="AS">Stop Motion Animation</option>
+                    <option value="AJ">Stop Motion Animation Jr</option>
+                </select>
             </div>
         </div>
 
