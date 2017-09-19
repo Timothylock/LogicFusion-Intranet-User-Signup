@@ -1,12 +1,13 @@
 package main
 
 import (
-"fmt"
-"net/http"
-"strings"
-"log"
-"os"
-"net"
+	"fmt"
+	"log"
+	"net"
+	"net/http"
+	"os"
+	"strings"
+	"time"
 )
 
 var class string = "default"
@@ -15,7 +16,7 @@ var course_code string = "XX"
 
 /*
 Takes in the request and appends to a csv
- */
+*/
 func submitForm(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	// Parse arguments
@@ -31,17 +32,17 @@ func submitForm(w http.ResponseWriter, r *http.Request) {
 	photoconsent := strings.Join(r.Form["photoconsent"], "")
 	parentsignature := strings.Join(r.Form["parentsignature"], "")
 
-	text := class + cc + course_code + "," + cc + "," + email + "," + password + "," + firstname + "," + lastname + "," + "," +
-		"," + "," + "," + gender + "," + "," + "Markham/Toronto" + "," + "," + parentfirstname + "," +
-		parentlastname + ", 5555555555 ," + parentemail + "," + photoconsent + "," + parentsignature + "\n"
+	text := fmt.Sprintf("%s%s%s,%s,%s,%s,%s,%s,,,,,%s,,Markham/TOronto,,%s,%s,5555555555,%s,%s,%s\n",
+		class, cc, course_code, cc, email, password, firstname, lastname, gender, parentfirstname, parentlastname,
+		parentemail, photoconsent, parentsignature)
 
 	fmt.Print(text)
 
 	// Write to the file
-	f, err := os.OpenFile("tim_studentdata_golangGenerated.csv", os.O_APPEND|os.O_WRONLY, 0600)
+	f, err := os.OpenFile(fmt.Sprintf("tim_studentdata_golangGenerated-%s.csv", time.Now().Format("2006-01-02")), os.O_APPEND|os.O_WRONLY, 0600)
 	if err != nil {
 		// If the file does not exist, create it first
-		f, err = os.OpenFile("tim_studentdata_golangGenerated.csv", os.O_CREATE|os.O_WRONLY, 0600)
+		f, err = os.OpenFile(fmt.Sprintf("tim_studentdata_golangGenerated-%s.csv", time.Now().Format("2006-01-02")), os.O_CREATE|os.O_WRONLY, 0600)
 		if err != nil {
 			panic(err)
 		}
@@ -64,13 +65,13 @@ func submitForm(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Respond back to the user
-	w.Write([]byte("Success! Press back to add another student"))
+	http.Redirect(w, r, "done.html", http.StatusSeeOther)
 }
 
 /*
 Allows the instructor to change the course and location.
 All future requests coming in will use this
- */
+*/
 func changeAdmin(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	// Parse arguments
@@ -84,7 +85,7 @@ func changeAdmin(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Updated CC: " + cc + "\n")
 	fmt.Println("Final course code being used: " + class + cc + course_code + "\n\n")
 
-	w.Write([]byte("Success!"))
+	http.Redirect(w, r, "adminDone.html", http.StatusSeeOther)
 }
 
 func main() {
@@ -98,7 +99,7 @@ func main() {
 	// handle err
 	for _, i := range ifaces {
 		addrs, err := i.Addrs()
-		if err == nil{
+		if err == nil {
 			for _, addr := range addrs {
 				var ip net.IP
 				switch v := addr.(type) {
